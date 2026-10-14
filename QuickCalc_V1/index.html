@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fffaf4">
+  <meta name="description" content="QuickCalc is a clean, fast calculator with scientific functions and calculation history.">
+  <title>QuickCalc</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">＋</div>
+        <div><h1>QuickCalc</h1><p>Simple. Smart. Precise.</p></div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="historyToggle" aria-label="Open calculation history" title="History">↺</button>
+        <button class="icon-btn" id="scientificToggle" aria-label="Toggle scientific functions" title="Scientific mode">ƒx</button>
+      </div>
+    </header>
+
+    <section class="calculator-card" aria-label="Calculator">
+      <div class="display">
+        <div class="display-label" id="displayLabel">READY TO CALCULATE</div>
+        <div class="expression" id="expression" aria-live="polite">0</div>
+        <div class="result" id="result" aria-live="polite"> </div>
+      </div>
+
+      <div class="scientific-panel hidden" id="scientificPanel" aria-label="Scientific functions">
+        <button class="key sci" data-action="func" data-value="sin(">sin</button>
+        <button class="key sci" data-action="func" data-value="cos(">cos</button>
+        <button class="key sci" data-action="func" data-value="tan(">tan</button>
+        <button class="key sci" data-action="func" data-value="log(">log</button>
+        <button class="key sci" data-action="func" data-value="ln(">ln</button>
+        <button class="key sci" data-action="func" data-value="sqrt(">√</button>
+        <button class="key sci" data-action="func" data-value="^2">x²</button>
+        <button class="key sci" data-action="func" data-value="^">xʸ</button>
+        <button class="key sci" data-action="func" data-value="π">π</button>
+        <button class="key sci" data-action="func" data-value="e">e</button>
+        <button class="key sci" data-action="func" data-value="(">(</button>
+        <button class="key sci" data-action="func" data-value=")">)</button>
+      </div>
+
+      <div class="keypad" id="keypad">
+        <button class="key utility" data-action="clear">AC</button>
+        <button class="key utility" data-action="backspace" aria-label="Delete last character">⌫</button>
+        <button class="key utility" data-action="percent">%</button>
+        <button class="key operator" data-action="operator" data-value="÷">÷</button>
+
+        <button class="key" data-action="digit" data-value="7">7</button>
+        <button class="key" data-action="digit" data-value="8">8</button>
+        <button class="key" data-action="digit" data-value="9">9</button>
+        <button class="key operator" data-action="operator" data-value="×">×</button>
+
+        <button class="key" data-action="digit" data-value="4">4</button>
+        <button class="key" data-action="digit" data-value="5">5</button>
+        <button class="key" data-action="digit" data-value="6">6</button>
+        <button class="key operator" data-action="operator" data-value="−">−</button>
+
+        <button class="key" data-action="digit" data-value="1">1</button>
+        <button class="key" data-action="digit" data-value="2">2</button>
+        <button class="key" data-action="digit" data-value="3">3</button>
+        <button class="key operator" data-action="operator" data-value="+">+</button>
+
+        <button class="key utility" data-action="sign">±</button>
+        <button class="key" data-action="digit" data-value="0">0</button>
+        <button class="key" data-action="decimal">.</button>
+        <button class="key equals" data-action="equals">=</button>
+      </div>
+      <div class="card-footer"><span class="status-dot"></span><span>Calculations stay on this device</span></div>
+    </section>
+
+    <section class="history-card hidden" id="historyPanel">
+      <div class="section-heading"><div><h2>Recent calculations</h2><p>Your latest results</p></div><button class="text-btn" id="clearHistory">Clear all</button></div>
+      <div id="historyList" class="history-list"><div class="empty-state">Your calculations will appear here.</div></div>
+    </section>
+    <footer class="app-footer">QUICKCALC <span>•</span> V1.0</footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
